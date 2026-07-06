@@ -104,7 +104,7 @@ Checkpoint: `AI_FLEET_SETUP.md` completo + al menos Claude Code y Aider verifica
 
 <phase_2_atlas timebox="3-4 días, un entregable tangible por día">
 - **Día 1 — Descubrimiento + funcional**: motor de preguntas mínimas + historias de usuario con criterios de aceptación para un caso de uso real.
-- **Día 2 — Arquitectura**: stack, modelo de datos, APIs, diagrama. Corre en el VPS Oracle Free Tier.
+- **Día 2 — Arquitectura**: stack, modelo de datos, APIs, diagrama. Diseñada para poder correr en el VPS Oracle Free Tier (deploy real post-MVP, según ADR-0001).
 - **Día 3 — Implementación mínima**: scaffolding real, repartido entre la flota según `<ai_fleet>` (arquitectura por vos, boilerplate por Aider/Antigravity).
 - **Día 4 — Demo + lanzamiento**: demo en vivo + primer posteo de LinkedIn.
 
