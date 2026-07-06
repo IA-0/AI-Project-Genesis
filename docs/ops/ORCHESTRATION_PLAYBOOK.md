@@ -26,4 +26,14 @@ Formato de cada entrada: **qué es** (2-3 líneas), **el caso real que lo dispar
 
 ---
 
-*Próximos principios esperados en este proyecto (se documentan cuando aparezcan en la práctica): enrutamiento por costo/capacidad, paralelización, aislamiento de fallas.*
+## 3. Enrutamiento por costo/capacidad
+
+**Qué es.** Cada tarea va a la herramienta más barata que la resuelve bien. El modelo caro se reserva para lo ambiguo y de alto apalancamiento (descubrimiento, arquitectura, criterio, revisión); lo ya bien especificado (boilerplate, refactors chicos, tests repetitivos) baja a modelos baratos o gratuitos. No es tacañería: es asignar capacidad de razonamiento donde cambia el resultado.
+
+**Caso real (2026-07-06).** La ventana de suscripción de Fable cierra el 2026-07-07. Federico reordenó la Fase 2 para que los dos días de mayor ambigüedad (Día 1 descubrimiento, Día 2 arquitectura) salgan con Fable antes del cierre, y los días de ejecución sobre spec ya escrita (Día 3 scaffolding, Día 4 demo) queden para Sonnet/Aider. La restricción de costo definió el cronograma — se movió el trabajo caro hacia la ventana barata, no al revés.
+
+**Cómo aplicarlo.** Antes de asignar una tarea, preguntar: ¿esto necesita criterio o ya está especificado? Si ya está especificado, mandarlo al modelo más barato que lo resuelve bien. Señales de mal enrutamiento: el modelo caro escribiendo código mecánico, o el barato tomando decisiones de arquitectura.
+
+---
+
+*Próximos principios esperados en este proyecto (se documentan cuando aparezcan en la práctica): paralelización, aislamiento de fallas.*
