@@ -16,4 +16,14 @@ Formato de cada entrada: **qué es** (2-3 líneas), **el caso real que lo dispar
 
 ---
 
-*Próximos principios esperados en este proyecto (se documentan cuando aparezcan en la práctica): enrutamiento por costo/capacidad, verificación cruzada, paralelización, aislamiento de fallas.*
+## 2. Verificación cruzada
+
+**Qué es.** Antes de aceptar el output de un agente, alguien independiente lo revisa: otro modelo (de otra familia — dos instancias del mismo modelo comparten los mismos puntos ciegos) o un humano. Aplica a decisiones tanto como a código. Lo innegociable es que nadie acepta su propio output sin otro par de ojos.
+
+**Caso real (2026-07-06).** El `<analisis>` de ADR-0001 (escrito por Fable) iba a revisarse con Codex CLI bajo consigna adversarial ("buscá el criterio peor evaluado"). El sandbox de Codex en Windows no pudo leer el repo (error de permisos) y el mecanismo se simplificó: el revisor independiente del ADR es Federico, que lo lee completo antes del checkpoint. Cambió el revisor, no el principio — y el cambio de mecanismo quedó documentado en el ADR mismo.
+
+**Cómo aplicarlo.** Para cada entregable importante, definir quién lo revisa *antes* de producirlo y que sea alguien distinto de quien lo escribió. Si el revisor es un modelo, darle una consigna que lo empuje a objetar (pedir "buscá el error" rinde más que "¿está bien?"). Documentar la revisión junto al entregable, no en un chat que se pierde. Y si la herramienta de revisión falla, se degrada a un revisor más simple — no se saltea la revisión.
+
+---
+
+*Próximos principios esperados en este proyecto (se documentan cuando aparezcan en la práctica): enrutamiento por costo/capacidad, paralelización, aislamiento de fallas.*

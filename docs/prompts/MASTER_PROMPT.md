@@ -80,7 +80,7 @@ Regla de asignación: lo que requiere criterio de arquitectura o decisiones de a
 
 <phase_1_genesis timebox="1 sprint de 30 minutos">
 1. **NORTH_STAR.md** — una frase verificable con fecha.
-2. **ADR-0001.md** — veredicto sobre Atlas aplicando `<evaluation_criteria>` dentro de `<analisis>`. Antes de comitear, pedile a otro modelo de la flota (Codex CLI o Antigravity CLI, no otra instancia tuya) que revise el `<analisis>` y señale si encuentra un criterio mal evaluado. Documentá su objeción (si la hay) y tu respuesta en el mismo ADR — esto es verificación cruzada aplicada a la decisión, no solo al código.
+2. **ADR-0001.md** — veredicto sobre Atlas aplicando `<evaluation_criteria>` dentro de `<analisis>`. La revisión del ADR la hace Federico leyéndolo completo antes del checkpoint — ese es el mecanismo de verificación de esta decisión.
 3. **PROJECT_BRIEF.md** — ya existe, solo chequear consistencia con el ADR.
 
 Checkpoint: 3 documentos comiteados + veredicto claro.
@@ -90,7 +90,7 @@ Checkpoint: 3 documentos comiteados + veredicto claro.
 Objetivo: dejar fede-central2 (y después federicopc) con toda la `<ai_fleet>` de nivel A operativa.
 
 Lo que hacés vos directamente por bash:
-- Instalar lo que falte (gh CLI, Codex CLI, Antigravity CLI, Aider) si no está.
+- Instalar lo que falte (gh CLI, Antigravity CLI, Aider) si no está. Codex CLI es fallback opcional (ver `<ai_fleet>`), no parte del checkpoint.
 - Correr `gh auth login`, `claude mcp add` para el GitHub MCP server, y equivalentes para Antigravity CLI y Aider (apuntando a Groq/DeepSeek).
 - Documentar todo en `docs/ops/AI_FLEET_SETUP.md` (archivo nuevo, autorizado explícitamente acá — es la única excepción a "no crear archivos nuevos" porque es infraestructura, no contenido de producto).
 
@@ -99,7 +99,7 @@ Lo que le pedís a Federico:
 - Pegar PATs o API keys cuando el flujo lo requiera.
 - Confirmar cuál de las 4 cuentas de Google usar para Antigravity CLI.
 
-Checkpoint: `AI_FLEET_SETUP.md` completo + al menos Claude Code, Codex CLI y Aider verificados funcionando contra el repo real (un commit de prueba con cada uno alcanza) + `ORCHESTRATION_PLAYBOOK.md` con los primeros principios ya documentados (mínimo enrutamiento por costo/capacidad y repo como memoria compartida, que ya aparecen en este mismo sprint).
+Checkpoint: `AI_FLEET_SETUP.md` completo + al menos Claude Code y Aider verificados funcionando contra el repo real (un commit de prueba con cada uno alcanza) + `ORCHESTRATION_PLAYBOOK.md` con los primeros principios ya documentados (mínimo enrutamiento por costo/capacidad y repo como memoria compartida, que ya aparecen en este mismo sprint).
 </infra_setup>
 
 <phase_2_atlas timebox="3-4 días, un entregable tangible por día">
@@ -130,5 +130,5 @@ Sin repetir el mismo `<concepto>` una vez que ya se explicó.
 <next_action>
 <objetivo>Cerrar Fase 1 y arrancar infra_setup en el mismo sprint si el veredicto de Atlas es positivo</objetivo>
 <accion>Aplicá `<evaluation_criteria>` a Atlas dentro de `<analisis>`, escribí ADR-0001.md, y si el veredicto es "se mantiene", segui directo con `<infra_setup>` sin esperar confirmación adicional</accion>
-<resultado_esperado>ADR-0001.md comiteado + fede-central2 con Claude Code, Codex CLI y Aider verificados contra el repo</resultado_esperado>
+<resultado_esperado>ADR-0001.md comiteado + fede-central2 con Claude Code y Aider verificados contra el repo</resultado_esperado>
 </next_action>
