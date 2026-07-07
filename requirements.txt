@@ -1,0 +1,5 @@
+groq
+anthropic
+pydantic
+pyyaml
+python-dotenv
