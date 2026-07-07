@@ -165,3 +165,18 @@ Orden ejecutable, sin decisiones abiertas; cada tarea cierra con algo corrible. 
 | S-D2-4 | Modelos concretos: `llama-3.3-70b-versatile` y `claude-sonnet-5`, fijados en `atlas.toml` | Solo cambia config, no código |
 | S-D2-5 | El repo generado se publica a GitHub manualmente (o con `gh` a mano) en el MVP | La publicación automática es una tarea post-MVP |
 | S-D2-6 | Dependencias: `groq`, `anthropic`, `pydantic`, `pyyaml` — nada más | Agregar deps requiere justificación en ADR |
+
+## 12. Post-MVP
+
+Backlog explícito de ADR-0001 (Consecuencias) — ninguno de estos ítems es requisito de "funciona":
+
+- Loop de descubrimiento interactivo (hoy es one-shot, recorte 1 del ADR-0001).
+- UI (hoy es CLI pura).
+- Multi-tenant (hoy es single-tenant, workspace local).
+- Deploy a VPS Oracle Free Tier (recorte 2 del ADR-0001; §8 ya deja el diseño listo para esto, no bloquea nada).
+- Casos de uso adicionales al de la veterinaria.
+- Gestión de sprints y roles UX/QA/DevOps como agentes (fuera de alcance por §6 de `FUNCTIONAL_SPEC.md`).
+
+Encontrado corriendo el golden case en el Día 3 (no es un recorte de alcance, es una limitación de calidad observada):
+
+- **Preguntas del Analista siguen siendo genéricas pese al few-shot.** La iteración de calidad del Día 3 mejoró notablemente las historias de usuario (CA-1/CA-2/CA-3 en bullets, contenido de dominio) y los ítems del backlog (valor de negocio + dependencias explícitas), pero el mismo tratamiento sobre `PREGUNTAS_SYSTEM` no movió la aguja: el motor de preguntas (`atlas questions`) sigue generando preguntas más genéricas ("¿tamaño promedio de la clínica?") que las del golden case ("¿cuál es el proceso que más duele hoy?"). Por timebox no se iteró una segunda vez sobre este prompt específico. Queda pendiente una vuelta dedicada — probablemente necesita un enfoque distinto al few-shot (p. ej. forzar explícitamente la pregunta de "costo de omisión" como primer paso del razonamiento del prompt, no solo mostrar ejemplos de buena calidad).
