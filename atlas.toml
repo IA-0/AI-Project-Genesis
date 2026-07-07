@@ -1,0 +1,20 @@
+# Atlas — configuración de enrutamiento y límites (ADR-0004).
+# Los modelos concretos son intercambiables acá sin tocar código (S-D2-4).
+
+[roles.analista]
+provider = "groq"
+model = "llama-3.3-70b-versatile"
+
+[roles.po]
+provider = "groq"
+model = "llama-3.3-70b-versatile"
+
+[roles.arquitecto]
+provider = "anthropic"
+model = "claude-sonnet-5"
+fallback_provider = "groq"
+fallback_model = "llama-3.3-70b-versatile"
+
+[limits]
+max_preguntas = 10
+max_reintentos = 1

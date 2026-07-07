@@ -1,0 +1,24 @@
+# Credenciales y config local — nunca commitear
+.env
+.env.*
+!.env.example
+*.local.json
+
+# Artefactos locales de Aider
+.aider*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node
+node_modules/
+
+# SO
+Thumbs.db
+.DS_Store
+
+# Atlas — workspaces generados en runtime (no son contenido versionable)
+workspace/
