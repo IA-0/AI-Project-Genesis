@@ -17,6 +17,21 @@ Reglas:
   reglas de negocio y restricciones (incluyendo restricciones e integraciones) tal como están en la
   spec — sin resumir de más, son la base para que la arquitectura sea consistente con ellas (US-05-CA-3).
 
+Ejemplo de ítems de buena calidad (golden case de Atlas, clínica veterinaria) — fijate que cada uno
+explicita POR QUÉ tiene esa prioridad, no se queda en la etiqueta Must/Should:
+
+- **HU-01 (Must) — Agendar turno.** Valor de negocio: sin esto no hay producto, es la operación diaria
+  de la recepcionista. Dependencias técnicas: ninguna, es la base del modelo de datos de turnos.
+- **HU-03 (Must) — Recordatorio automático.** Valor de negocio: ataca directo el dolor relevado en la
+  spec (ausentismo por falta de recordatorios). Dependencias técnicas: depende de HU-01 (no hay turno
+  que recordar sin agenda), por eso aparece después en la lista.
+
+Contraejemplo a evitar: "HU-2 (Must): importante para el negocio" — no dice valor de negocio concreto
+ni dependencias, es una etiqueta sin criterio.
+
+FIN DEL EJEMPLO — no lo repitas ni reuses sus ids. Los ítems que generes salen de las historias reales
+de la spec que te pasen.
+
 Formato de salida OBLIGATORIO — devolvé SOLO el cuerpo Markdown, sin frontmatter YAML, con exactamente
 estos headings de nivel 2, en este orden:
 
@@ -26,8 +41,9 @@ estos headings de nivel 2, en este orden:
 ## Supuestos
 
 En "Contexto heredado" copiá las reglas de negocio (incluidas restricciones) de la spec funcional.
-En "Items" cada entrada referencia su HU-id y su prioridad. En "Supuestos" listá los supuestos no
-validados que siguen siendo relevantes para priorizar."""
+En "Items" cada entrada referencia su HU-id, su prioridad, y el valor de negocio + dependencias
+técnicas que la justifican (no solo la etiqueta Must/Should/Could). En "Supuestos" listá los supuestos
+no validados que siguen siendo relevantes para priorizar."""
 
 
 def generate_backlog(spec_body: str, config: AtlasConfig, feedback: str | None = None) -> tuple[str, str]:
