@@ -25,7 +25,7 @@ Se llama Atlas y tiene tres decisiones técnicas que me interesa defender, no so
   entrevista es la traza de decisiones, no el volumen de líneas.
 
 Repo, con el pipeline completo y el caso de uso corriendo de punta a punta:
-https://github.com/IA-0/AI-Project-Genesis
+https://github.com/federicoramos67/AI-Project-Genesis
 
 ---
 
